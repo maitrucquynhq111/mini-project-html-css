@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+:root{
+    --color-active: #3498db;
+    --color-disabled: #e0e0e0
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #f7f6fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+.container-process {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    width: 350px;
+
+    position: relative;
+}
+.container-process::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: var(--color-disabled);
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    z-index: -2;
+}
+.process-line {
+    position: absolute;
+    height: 2px;
+    width: 0;
+    background-color: var(--color-active);
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    transition: width .5s ease;
+    z-index: -1;
+}
+
+.process-step {
+    background-color: #fff;
+    border-radius: 50%;
+    border: 2px solid var(--color-disabled);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: border .5s ease;
+}
+
+.process-step.active{
+    border: 2px solid var(--color-active);
+}
+
+.btn {
+    color: #fff;
+    background-color: var(--color-active);
+    border-color: var(--color-active);
+    border-radius: 5px;
+    padding: 5px 30px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.btn:active {
+    transform: scale(.98)
+}
+
+.btn:disabled {
+    color: #000;
+    background-color: var(--color-disabled);
+    border-color: var(--color-disabled);
+    cursor: not-allowed;
+}
